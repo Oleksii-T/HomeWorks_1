@@ -172,19 +172,31 @@ return 0;
 /*
 The task is to develop a program to compute how to produce a sail using standardized sheets of fabric.
 
-We assume there is a fabric produced in rectangular sheets, the size of the sheet is known (width and height). Next, there is a request to produce a rectangular sail (again, width and height is given). The program reads the dimensions and computes the number of fabric sheets needed to produce the sail.
+We assume there is a fabric produced in rectangular sheets, the size of the sheet is known (width and height).
+Next, there is a request to produce a rectangular sail (again, width and height is given). The program reads the
+dimensions and computes the number of fabric sheets needed to produce the sail.
 
-The computation is slightly more complicated, we assume there is an overlap needed in the places where the sheets are sewed. Thus the program reads the size of the fabric, the size of the sail and compares them. If the fabric sheets must be sewed, the program further asks for the width of the required overlap.
+The computation is slightly more complicated, we assume there is an overlap needed in the places where the sheets are
+sewed. Thus the program reads the size of the fabric, the size of the sail and compares them. If the fabric sheets
+must be sewed, the program further asks for the width of the required overlap.
 
-We assume the fabric sheets are sewed in a rectangular grid, i.e. all the rectangles are aligned in the same orientation. Moreover, we assume that the extra material (that exceeds the size of the sail) must be discarded (cannot be re-used).
+We assume the fabric sheets are sewed in a rectangular grid, i.e. all the rectangles are aligned in the same
+orientation. Moreover, we assume that the extra material (that exceeds the size of the sail) must be discarded
+(cannot be re-used).
 
 The task is to develop a program to compute how to produce a sail using standardized sheets of fabric.
 
-We assume there is a fabric produced in rectangular sheets, the size of the sheet is known (width and height). Next, there is a request to produce a rectangular sail (again, width and height is given). The program reads the dimensions and computes the number of fabric sheets needed to produce the sail.
+We assume there is a fabric produced in rectangular sheets, the size of the sheet is known (width and height).
+Next, there is a request to produce a rectangular sail (again, width and height is given). The program reads the
+dimensions and computes the number of fabric sheets needed to produce the sail.
 
-The computation is slightly more complicated, we assume there is an overlap needed in the places where the sheets are sewed. Thus the program reads the size of the fabric, the size of the sail and compares them. If the fabric sheets must be sewed, the program further asks for the width of the required overlap.
+The computation is slightly more complicated, we assume there is an overlap needed in the places where the
+sheets are sewed. Thus the program reads the size of the fabric, the size of the sail and compares them. If
+the fabric sheets must be sewed, the program further asks for the width of the required overlap.
 
-We assume the fabric sheets are sewed in a rectangular grid, i.e. all the rectangles are aligned in the same orientation. Moreover, we assume that the extra material (that exceeds the size of the sail) must be discarded (cannot be re-used).
+We assume the fabric sheets are sewed in a rectangular grid, i.e. all the rectangles are aligned in the same
+orientation. Moreover, we assume that the extra material (that exceeds the size of the sail) must be discarded
+(cannot be re-used).
 
 Sample program runs:
 
@@ -276,11 +288,23 @@ Advice:
 
     Do not forget the newline (\n) after the last output line.
     Use double data type to represent the values. Do not use float, the precision of float is not always sufficient.
-    The program can be developed without additional functions (i.e. in one big main). However, if divided into functions, the program is readable and easier to debug.
+    The program can be developed without additional functions (i.e. in one big main). However, if divided into
+    functions, the program is readable and easier to debug.
     All numeric values in the input fit into the range of double data type, the result fits into int data type.
-    Please strictly adhere to the format of the output. The output must exactly match the output of the reference program. The comparison is done by a machine, the machine requires an exact match. If your program provides output different from the reference, the program is considered malfunctioning. Be very careful, the machine is sensitive event to whitespace characters (spaces, newlines, tabulators). Please note that all output lines are followed by a newline character (\n). This applies even to the last line of the output, moreover, this applies even to the error message. Download the enclosed archive. The archive contains a set of testing inputs and the expected outputs. Read Progtest FAQ to learn how to use input/output redirection and how to simplify testing of your programs.
+    Please strictly adhere to the format of the output. The output must exactly match the output of the reference
+    program. The comparison is done by a machine, the machine requires an exact match. If your program provides output
+    different from the reference, the program is considered malfunctioning. Be very careful, the machine is sensitive
+    event to whitespace characters (spaces, newlines, tabulators). Please note that all output lines are followed by
+    a newline character (\n). This applies even to the last line of the output, moreover, this applies even to the
+    error message. Download the enclosed archive. The archive contains a set of testing inputs and the expected outputs.
+    Read Progtest FAQ to learn how to use input/output redirection and how to simplify testing of your programs.
 
-    Your program will be tested in a restricted environment. The testing environment limits running time and available memory. The exact time and memory limits are shown in the reference solution testing log. However, neither time nor memory limit could cause a problem in this simple program. Next, the testing environment prohibits the use of functions which are considered "dangerous" (functions to execute other processes, functions to access the network, ... ). If your program uses such functions, the testing environment refuses to execute the program. Your program may use something like the code below:
+    Your program will be tested in a restricted environment. The testing environment limits running time and available
+    memory. The exact time and memory limits are shown in the reference solution testing log. However, neither time nor
+    memory limit could cause a problem in this simple program. Next, the testing environment prohibits the use of
+    functions which are considered "dangerous" (functions to execute other processes,
+    functions to access the network, ... ). If your program uses such functions, the testing environment
+    refuses to execute the program. Your program may use something like the code below:
 
        int main ( int argc, char * argv [] )
        {
@@ -292,7 +316,11 @@ Advice:
        }
        
 
-    This will not work properly in the testing environment - it is prohibited to execute other programs. (Even if the function were allowed, this would not work properly. The program would infinitely wait for a key to be pressed, however, no one will press any key in the automated testing environment. Thus, the program would be terminated on exceeded time limit.) If you want to keep the pause for your debugging and you want the program to be accepted by the Progtest, use the following trick:
+    This will not work properly in the testing environment - it is prohibited to execute other programs.
+    (Even if the function were allowed, this would not work properly. The program would infinitely wait for a
+    key to be pressed, however, no one will press any key in the automated testing environment. Thus, the program
+    would be terminated on exceeded time limit.) If you want to keep the pause for your debugging and you want the
+    program to be accepted by the Progtest, use the following trick:
 
        int main ( int argc, char * argv [] )
        {
@@ -306,7 +334,8 @@ Advice:
        } 
        
 
-    Textual description of valid input data structure is not 100% exact. Since some students complained about it, we provide input language specification in EBNF:
+    Textual description of valid input data structure is not 100% exact. Since some students complained about it,
+    we provide input language specification in EBNF:
 
         input      ::= { whiteSpace } fabric { whiteSpace } sail { whiteSpace } [ overlap { whiteSpace } ]
         whiteSpace ::= ' ' | '\t' | '\n' | '\r'
