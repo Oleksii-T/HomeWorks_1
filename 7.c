@@ -490,7 +490,9 @@ int main ( int argc, char * argv [] )
 /*
 The task is to develop a set of functions that implement a database of people.
 
-The database shall hold records representing people. Each person in the database is represented by an ID (unique, int) and a name. Moreover, we will store the link to the parents (when known). The database will support insertions and searches.
+The database shall hold records representing people. Each person in the database is represented by an ID
+(unique, int) and a name. Moreover, we will store the link to the parents (when known). The database will
+support insertions and searches.
 
 The database will be accessible via functions:
 
@@ -513,31 +515,47 @@ TRESULT * CommonAncestors  ( int               ID1,
 void      FreeResult       ( TRESULT         * res );
 
 TRESULT
-    is a structure representing one person in a result. The results are returned in the form of a singly linked list, where TRESULT is an element. The fields are:
+    is a structure representing one person in a result. The results are returned in the form of a singly linked
+    list, where TRESULT is an element. The fields are:
 
         m_Next a link to the next element in the list. The last element in the list has this field set to NULL,
         m_ID is the ID of the person,
         m_Name is the name of the person (ASCIIZ string).
 
 Init
-    is a function to initialize the database and set its internal structures. The function is called before any other function.
+    is a function to initialize the database and set its internal structures. The function is called before any other
+    function.
 Done
-    is a function to free the resources when the database is no longer needed. The testing environment calls the function at the end of the testing. Moreover, functions Init/Done may be called several times. However, they are always called in pairs Init Done Init Done ... Init Done.
+    is a function to free the resources when the database is no longer needed. The testing environment calls the
+    function at the end of the testing. Moreover, functions Init/Done may be called several times. However, they are
+    always called in pairs Init Done Init Done ... Init Done.
 Register
-    is a function to add a new person to the database. The parameters are ID and the name of the person being added, and the IDs of both parents. The functions modifies the database and returns a return value 0 (failure) or 1 (success). To succeed, the following is required:
+    is a function to add a new person to the database. The parameters are ID and the name of the person being added,
+    and the IDs of both parents. The functions modifies the database and returns a return value 0 (failure) or 1 (success).
+    To succeed, the following is required:
 
         ID of the person is unique and non-zero,
         parent ID is either 0 (the parent is not known) or non-zero (identifying a known person in the database),
         parent #1 and parent #2 must not be the same person.
 
 Ancestors
-    the function searches all ancestors of the given person. The result is a linked list of the people found. The ordering of the list is not specified, however, duplicities are not allowed. If the given person does not exist or if no ancestors of the person are known, the return value shall be NULL.
+    the function searches all ancestors of the given person. The result is a linked list of the people found. The
+    ordering of the list is not specified, however, duplicities are not allowed. If the given person does not exist
+    or if no ancestors of the person are known, the return value shall be NULL.
 CommonAncestors
-    the function searches all known ancestors that are common for the two give persons. The result is a linked list of the persons found. The ordering of the list is not specified, however, duplicities are not allowed. If either of the given persons does not exist, or if no ancestors of the given person are known, or if there are no common ancestors, the return value shall be NULL.
+    the function searches all known ancestors that are common for the two give persons. The result is a linked list
+    of the persons found. The ordering of the list is not specified, however, duplicities are not allowed. If either
+    of the given persons does not exist, or if no ancestors of the given person are known, or if there are no common
+    ancestors, the return value shall be NULL.
 FreeResult
-    function frees resources allocated by the linked list. The function is called by the testing environment when the result returned by either Ancestors or CommonAncestors is not longer needed.
+    function frees resources allocated by the linked list. The function is called by the testing environment when
+    the result returned by either Ancestors or CommonAncestors is not longer needed.
 
-Submit a source file with the implementation of the above functions. The interface of the functions/structure is fixed and cannot be modified in any way. If the interface is modified, the program will not compile. Use the attached archive as a basis of your solution. The attached source contains the required interface and an example main function with the code that are used in the basic test. Note: the conditional compile directives must not be modified. If modified, the compilation may fail.
+Submit a source file with the implementation of the above functions. The interface of the functions/structure is
+fixed and cannot be modified in any way. If the interface is modified, the program will not compile. Use the attached
+archive as a basis of your solution. The attached source contains the required interface and an example main function
+with the code that are used in the basic test. Note: the conditional compile directives must not be modified. If modified,
+the compilation may fail.
 
 The internal database implementation is not specified. Based on the data, some linked structure is recommended.
 
