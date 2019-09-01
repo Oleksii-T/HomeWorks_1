@@ -220,11 +220,17 @@ if (tmp != 2)
 /*
 The task is to develop a program to optimize parcel investments.
 
-We assume a grid of land parcels. The size of the grid is known (1 to 2000 rows/columns), moreover, the price of the individual parcels is known. The price is an integer, it may be positive, zero, or negative. A negative (zero) price is acceptable, e.g. the land is an easement.
+We assume a grid of land parcels. The size of the grid is known (1 to 2000 rows/columns), moreover, the price of
+the individual parcels is known. The price is an integer, it may be positive, zero, or negative. A negative (zero)
+price is acceptable, e.g. the land is an easement.
 
-We want to invest money into the parcels. The investment is tricky, however. We may only invest into adjacent parcels that form a rectangular (square) shape. Moreover, we are searching for an investment where the sum of parcel prices is exactly equal to the invested money.
+We want to invest money into the parcels. The investment is tricky, however. We may only invest into adjacent parcels
+that form a rectangular (square) shape. Moreover, we are searching for an investment where the sum of parcel prices is
+exactly equal to the invested money.
 
-The program must understand two kinds of query. First, a query of type count x finds the total number of possible investments. Second, query of type list x is an extension of count x. It lists the individual parcels that match the query and the total number of possible investments.
+The program must understand two kinds of query. First, a query of type count x finds the total number of possible
+investments. Second, query of type list x is an extension of count x. It lists the individual parcels that match the
+query and the total number of possible investments.
 
 The input of the program is:
 
@@ -236,22 +242,30 @@ A query is either count x or list x, where x is the amount of money to invest.
 
 The output of the program are answers to the queries:
 
-    count x answer is the total number of possible parcel allocations such that the allocations form a rectangle/square in the grid and the sum of parcel prices equals to x,
-    list x delivers the list of possible parcel allocations plus the total number of allocations (like count x). The list of possible allocations consists of lines, each line represents one possible allocation:
+    count x answer is the total number of possible parcel allocations such that the allocations form a rectangle/square
+    in the grid and the sum of parcel prices equals to x,
+    list x delivers the list of possible parcel allocations plus the total number of allocations (like count x). The
+    list of possible allocations consists of lines, each line represents one possible allocation:
 
         x @ (x1,y1) - (x2,y2) 
         
 
     where x1,y1 is upper left corner of the allocation and x2,y2 is the lower right corner of the allocation.
 
-The program must validate input data. If the input is invalid, the program must detect it, it shall output an error message (see below) and terminate. If displayed, the error message must be displayed to the standard output (do not send it to the error output) and the error message must be terminated by a newline (\n). The input is considered invalid, if:
+The program must validate input data. If the input is invalid, the program must detect it, it shall output an error
+message (see below) and terminate. If displayed, the error message must be displayed to the standard output (do not
+send it to the error output) and the error message must be terminated by a newline (\n). The input is considered invalid,
+if:
 
     grid dimensions are not numbers, or is outside the boundaries (1 to 2000),
     parcel price is not an integer,
     query is neither 'count' nor 'list',
     query parameter is not an integer.
 
-Invest some time to think up the structure of the program. There is an upper limit of the grid size, thus static allocation may be adequate for the task. Next, the searching. A naive searching algorithm may require up to n6 time, there are improvements that decrease the searching time dramatically. The time limits in the testing environment are very benevolent. A sensible implementation of the naive algorithm passes all but bonus tests.
+Invest some time to think up the structure of the program. There is an upper limit of the grid size, thus static
+allocation may be adequate for the task. Next, the searching. A naive searching algorithm may require up to n6 time,
+there are improvements that decrease the searching time dramatically. The time limits in the testing environment are
+very benevolent. A sensible implementation of the naive algorithm passes all but bonus tests.
 
 Sample program runs:
 
@@ -421,10 +435,15 @@ Advice:
     Do not forget the newline (\n) after the last output line.
     Use int data type to represent the prices.
     Coordinates (0,0) correspond to the upper left corner, x ccordinate grows to the right, y coordinate grows downwards.
-    There is no need to dynamically allocate memory in this homework. Memory limits are big enough to allocate the price maps statically. However, there may not be enough space in the stack to allocate the price maps as local variables. An allocation in the data segment may solve the problem, see static keyword.
-    The newlines in the input price maps do not have to follow the shape of the grid. In fact, the program may ignore the input newlines since the dimensions of the grid are known in advance.
-    The number of parcel allocations may be huge in the bonus tests. The printing of all matching parcel allocations slows down the program. Therefore, the bonus tests only use count queries for huge inputs.
-    There is not any exact rule how to order of the lines in the list answers. Your implementation may print the allocations in any order, the testing environment fixes the order before the comparison. For example input:
+    There is no need to dynamically allocate memory in this homework. Memory limits are big enough to allocate the
+    price maps statically. However, there may not be enough space in the stack to allocate the price maps as local
+    variables. An allocation in the data segment may solve the problem, see static keyword.
+    The newlines in the input price maps do not have to follow the shape of the grid. In fact, the program may ignore
+    the input newlines since the dimensions of the grid are known in advance.
+    The number of parcel allocations may be huge in the bonus tests. The printing of all matching parcel allocations
+    slows down the program. Therefore, the bonus tests only use count queries for huge inputs.
+    There is not any exact rule how to order of the lines in the list answers. Your implementation may print the
+    allocations in any order, the testing environment fixes the order before the comparison. For example input:
 
        Map size:
        4 3
@@ -519,7 +538,8 @@ Advice:
        
 
     or any other of the remaining 371993326789901217467999448150835199999998 permutations.
-    Textual description of valid input data structure is not 100% exact. Since some students complained about it, we provide input language specification in EBNF:
+    Textual description of valid input data structure is not 100% exact. Since some students complained about it, we
+    provide input language specification in EBNF:
 
         input      ::= { whiteSpace } gridSize { whiteSpace } priceMap { whiteSpace } queryList 
         whiteSpace ::= ' ' | '\t' | '\n' | '\r'
@@ -541,5 +561,4 @@ Evaluation: 	7.2600
 Max. assessment: 	5.0000 (Without bonus points)
 Submissions: 	2 / 20 Free retries + 10 Penalized retries (-10 % penalty each retry)
 Advices: 	2 / 2 Advices for free + 2 Advices with a penalty (-10 % penalty each advice)
-
 */
