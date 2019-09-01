@@ -294,21 +294,39 @@ return 0;
 /*
 The task is to develop a program to compare two land lots.
 
-We assume land lots in the shape of a convex polygon. A land lot is described by the vertices of the polygon. The vertices along the polygon's border are given in a sequence. The sequence starts in some vertex and ends in the starting vertex. Each vertex consists of two decimal numbers - vertex x and y coordinates.
+We assume land lots in the shape of a convex polygon. A land lot is described by the vertices of the polygon.
+The vertices along the polygon's border are given in a sequence. The sequence starts in some vertex and ends in the
+starting vertex. Each vertex consists of two decimal numbers - vertex x and y coordinates.
 
-The input of the program consists of two land lots - polygons. The program reads the polygons and computes the area and perimeter length of both input polygons.
+The input of the program consists of two land lots - polygons. The program reads the polygons and computes the area
+and perimeter length of both input polygons.
 
-The output of the program is the comparison of the polygons, i.e. the program compares the perimeter length and area of the input polygons (see below).
+The output of the program is the comparison of the polygons, i.e. the program compares the perimeter length and area
+of the input polygons (see below).
 
-The program must validate input data. If the input is invalid, the program must detect it, it shall output an error message (see below) and terminate. If displayed, the error message must be displayed to the standard output (do not send it to the error output) and the error message must be terminated by a newline (\n). The input is considered invalid, if:
+The program must validate input data. If the input is invalid, the program must detect it, it shall output an error
+message (see below) and terminate. If displayed, the error message must be displayed to the standard output (do not
+send it to the error output) and the error message must be terminated by a newline (\n). The input is considered
+invalid, if:
 
     any coordinate is not a decimal number,
     an input polygon is incomplete (does not reach the start point),
     there were fewer than 3 coordinates in an input polygon.
 
-Please strictly adhere to the format of the output. The output must exactly match the output of the reference program. The comparison is done by a machine, the machine requires an exact match. If your program provides output different from the reference, the program is considered malfunctioning. Be very careful, the machine is sensitive event to whitespace characters (spaces, newlines, tabulators). Please note that all output lines are followed by a newline character (\n). This applies even to the last line of the output, moreover, this applies even to the error message. Download the enclosed archive. The archive contains a set of testing inputs and the expected outputs. Read Progtest FAQ to learn how to use input/output redirection and how to simplify testing of your programs.
+Please strictly adhere to the format of the output. The output must exactly match the output of the reference program.
+The comparison is done by a machine, the machine requires an exact match. If your program provides output different
+from the reference, the program is considered malfunctioning. Be very careful, the machine is sensitive event to
+whitespace characters (spaces, newlines, tabulators). Please note that all output lines are followed by a newline
+character (\n). This applies even to the last line of the output, moreover, this applies even to the error message.
+Download the enclosed archive. The archive contains a set of testing inputs and the expected outputs. Read Progtest
+FAQ to learn how to use input/output redirection and how to simplify testing of your programs.
 
-Your program will be tested in a restricted environment. The testing environment limits running time and available memory. The exact time and memory limits are shown in the reference solution testing log. However, neither time nor memory limit could cause a problem in this simple program. Next, the testing environment prohibits the use of functions which are considered "dangerous" (functions to execute other processes, functions to access the network, ... ). If your program uses such functions, the testing environment refuses to execute the program. Your program may use something like the code below:
+Your program will be tested in a restricted environment. The testing environment limits running time and available
+memory. The exact time and memory limits are shown in the reference solution testing log. However, neither time
+nor memory limit could cause a problem in this simple program. Next, the testing environment prohibits the use of
+functions which are considered "dangerous" (functions to execute other processes,
+functions to access the network, ... ). If your program uses such functions, the testing environment refuses to
+execute the program. Your program may use something like the code below:
 
 int main ( int argc, char * argv [] )
 {
@@ -319,7 +337,11 @@ int main ( int argc, char * argv [] )
   return 0;
 }
 
-This will not work properly in the testing environment - it is prohibited to execute other programs. (Even if the function were allowed, this would not work properly. The program would infinitely wait for a key to be pressed, however, no one will press any key in the automated testing environment. Thus, the program would be terminated on exceeded time limit.) If you want to keep the pause for your debugging and you want the program to be accepted by the Progtest, use the following trick:
+This will not work properly in the testing environment - it is prohibited to execute other programs.
+(Even if the function were allowed, this would not work properly. The program would infinitely wait for a key
+to be pressed, however, no one will press any key in the automated testing environment. Thus, the program would
+be terminated on exceeded time limit.) If you want to keep the pause for your debugging and you want the program
+to be accepted by the Progtest, use the following trick:
 
 int main ( int argc, char * argv [] )
 {
@@ -462,12 +484,20 @@ Advice:
 
     Do not forget the newline (\n) after the last output line.
     Use double data type to represent the values. Do not use float, the precision of float is not always sufficient.
-    The program can be developed without additional functions (i.e. in one big main). However, if divided into functions, the program is readable and easier to debug.
-    All input values as well as the output values fit into the range of double data type. The range of double is enough even if your program uses Heron's formula to compute the area. However, the formula must be modified to avoid overflow/underflow when multiplying.
-    The resulting area and perimeter length may vary a bit based on the algorithm used. The testing environment accepts small differences up to 0.1 ‰
-    The problem does not require any arrays. When used, the arrays just make the problem more difficult. Both the area and perimeter may be computed on-the-fly as the input coordinates are read. The input is a convex polygon. Thus it may be arbitrarily divided into a non-overlapping triangle fan. The area of individual triangles may be computed and aggregated.
+    The program can be developed without additional functions (i.e. in one big main). However, if divided into functions,
+    the program is readable and easier to debug.
+    All input values as well as the output values fit into the range of double data type. The range of double is
+    enough even if your program uses Heron's formula to compute the area. However, the formula must be modified to
+    avoid overflow/underflow when multiplying.
+    The resulting area and perimeter length may vary a bit based on the algorithm used. The testing environment
+    accepts small differences up to 0.1 ‰
+    The problem does not require any arrays. When used, the arrays just make the problem more difficult. Both the
+    area and perimeter may be computed on-the-fly as the input coordinates are read. The input is a convex polygon.
+    Thus it may be arbitrarily divided into a non-overlapping triangle fan. The area of individual triangles may be
+    computed and aggregated.
     You do not need to test the convexity of the input polygons. Non-convex polygons are not tested.
-    Textual description of valid input data structure is not 100% exact. Since some students complained about it, we provide input language specification in EBNF:
+    Textual description of valid input data structure is not 100% exact. Since some students complained about it,
+    we provide input language specification in EBNF:
 
         input      ::= { whiteSpace } polygon { whiteSpace } polygon { whiteSpace } 
         whiteSpace ::= ' ' | '\t' | '\n' | '\r'
@@ -487,10 +517,3 @@ Max. assessment: 	3.0000 (Without bonus points)
 Submissions: 	15 / 20 Free retries + 10 Penalized retries (-10 % penalty each retry)
 Advices: 	2 / 2 Advices for free + 2 Advices with a penalty (-10 % penalty each advice)
 */
-
-
-
-
-
-
-
