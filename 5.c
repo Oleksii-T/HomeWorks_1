@@ -250,26 +250,50 @@ return 1;
 /*
 The task is to develop a program that finds the maximum possible weight of a truck that drives on a highway.
 
-We assume a single highway. The highway is divided by entrance ramps into individual sections. There is a maximum possible load assigned to each highway section. The load is defined either when the highway is constructed, or is changed later (e.g. when the highway is repaired). Transport companies need to follow the weight limits. I.e. the trucks may be loaded such that the weight does not exceed any limit of the highway section the truck drives. The program will help this computation, i.e. it will find the maximum possible load of a truck given a range of highway sections.
+We assume a single highway. The highway is divided by entrance ramps into individual sections. There is a maximum
+possible load assigned to each highway section. The load is defined either when the highway is constructed, or is
+changed later (e.g. when the highway is repaired). Transport companies need to follow the weight limits. I.e. the
+trucks may be loaded such that the weight does not exceed any limit of the highway section the truck drives. The program
+will help this computation, i.e. it will find the maximum possible load of a truck given a range of highway sections.
 
-The program is interactive. It processes individual commands until it reaches end-of-file (EOF) in the standard input. The commands are of three kinds:
+The program is interactive. It processes individual commands until it reaches end-of-file (EOF) in the standard input.
+The commands are of three kinds:
 
-    construct [x,y,z, ...] This command is used to when new section(s) of the highway are constructed. There is a comma separated list of numbers in the square brackets, each number represent the maximum load of the newly constructed highway section. The loads in the list are positive integers. Naturally, this command extends the valid range of sections in the highway,
-    limits x [u,v,w, ...] This command updates the loads of the referenced highway sections. The first section to update is section x (max load set to u), second updated section is x+1 (max load set to v), next updated section is x+2 (max load set to w), ...
+    construct [x,y,z, ...] This command is used to when new section(s) of the highway are constructed. There is a comma
+    separated list of numbers in the square brackets, each number represent the maximum load of the newly constructed
+    highway section. The loads in the list are positive integers. Naturally, this command extends the valid range of
+    sections in the highway,
+    limits x [u,v,w, ...] This command updates the loads of the referenced highway sections. The first section to update
+    is section x (max load set to u), second updated section is x+1 (max load set to v), next updated section is x+2 (max
+    load set to w), ...
     load x y This command finds the maximum load load of a truck that drives highway sections x, x+1, x+2, ..., y.
 
 The output consists of answers to the load commands in the input.
 
-The program must validate input data. If the input is invalid, the program must detect it, it shall output an error message (see below) and terminate. If displayed, the error message must be displayed to the standard output (do not send it to the error output) and the error message must be terminated by a newline (\n). The input is considered invalid, if:
+The program must validate input data. If the input is invalid, the program must detect it, it shall output an error
+message (see below) and terminate. If displayed, the error message must be displayed to the standard output (do not
+send it to the error output) and the error message must be terminated by a newline (\n). The input is considered invalid,
+if:
 
     the input commend is neither construct, limits, nor load,
-    the list of sections in construct command is invalid (missing square brackets, missing commas, invalid section loads - not positive integers, empty list),
-    the parameters of limits command are invalid. Either the first section to update is not a valid section (not an integer, does not fit into the range of sections in the existing highway), or the list of loads is invalid (missing square brackets, missing commas, invalid section loads - not positive integers, empty list), or the command attempts to update the load of a section that is not constructed yet.
-    the parameters of load command are invalid (must be integers in the range from 0 to the last section of the highway, the first section number must be smaller or equal to the last section number).
+    the list of sections in construct command is invalid (missing square brackets, missing commas, invalid section 
+    loads - not positive integers, empty list),
+    the parameters of limits command are invalid. Either the first section to update is not a valid section
+    (not an integer, does not fit into the range of sections in the existing highway), or the list of loads
+    is invalid (missing square brackets, missing commas, invalid section loads - not positive integers, empty
+    list), or the command attempts to update the load of a section that is not constructed yet.
+    the parameters of load command are invalid (must be integers in the range from 0 to the last section of the
+    highway, the first section number must be smaller or equal to the last section number).
 
-Invest some time to think up the structure of the program. There is not any explicit upper limit on the number of sections. Do not try to allocate some high fixed number of sections - such solution will not pass even the basic test (there are strict memory limits in the basic test). Your program memory requirements must be proportional to the size of the input.
+Invest some time to think up the structure of the program. There is not any explicit upper limit on the number of
+sections. Do not try to allocate some high fixed number of sections - such solution will not pass even the basic
+test (there are strict memory limits in the basic test). Your program memory requirements must be proportional to
+the size of the input.
 
-The searching may be rather slow, especially if the number of highway sections is very high. The time limits are adjusted such that basic searching algorithm passes all tests except the bonus. An advanced algorithm is required to pass the bonus test. You may assume that the load commands are quite frequent. On the other hand construct and limits commands are rare. Thus it makes sense to invest some time to preprocess the input data.
+The searching may be rather slow, especially if the number of highway sections is very high. The time limits are
+adjusted such that basic searching algorithm passes all tests except the bonus. An advanced algorithm is required
+to pass the bonus test. You may assume that the load commands are quite frequent. On the other hand construct and
+limits commands are rare. Thus it makes sense to invest some time to preprocess the input data.
 
 Sample program runs:
 
@@ -322,8 +346,10 @@ Advice:
     Use int data type to represent the loads/weights.
     The program requires dynamic memory allocation.
     Use C libraries to solve the problem. Do not use C++ (STL).
-    The program requires a reasonable implementation of the input processing. If your implementation needs to increase the size of an array, do not increase the size by just one element.
-    Textual description of valid input data structure is not 100% exact. Since some students complained about it, we provide input language specification in EBNF:
+    The program requires a reasonable implementation of the input processing. If your implementation needs to
+    increase the size of an array, do not increase the size by just one element.
+    Textual description of valid input data structure is not 100% exact. Since some students complained about it,
+    we provide input language specification in EBNF:
 
         input      ::= { whiteSpace } { command { whiteSpace } }
         whiteSpace ::= ' ' | '\t' | '\n' | '\r'
@@ -344,5 +370,3 @@ Max. assessment: 	3.0000 (Without bonus points)
 Submissions: 	12 / 20 Free retries + 10 Penalized retries (-10 % penalty each retry)
 Advices: 	2 / 2 Advices for free + 2 Advices with a penalty (-10 % penalty each advice)
 */
-
-
