@@ -35,7 +35,7 @@ typedef struct rec {
 
 typedef struct datebase {
    RECORD * head;
-   RECORD * tail;
+   RECORD * tail; 
 } DB;
 
  DB * list; /* global datebase variabal  */
