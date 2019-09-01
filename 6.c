@@ -475,28 +475,44 @@ return 1;
 /*
 The task is to develop a program that manipulates an electronic phone book.
 
-Assume a simple phone book. The phone book keeps pairs phone number - name. The program further searches the phone book. The searches search either the phone number, or the name. Moreover, we do not have to specify complete phone/name, instead, we may only specify a prefix of the phone/name. The program searches the phone book and selects all records that match the given filter.
+Assume a simple phone book. The phone book keeps pairs phone number - name. The program further searches the phone book.
+The searches search either the phone number, or the name. Moreover, we do not have to specify complete phone/name,
+instead, we may only specify a prefix of the phone/name. The program searches the phone book and selects all records
+that match the given filter.
 
-We assume the searches are in the form of a numbers. The numbers either denote (a prefix of) the phone number, or (a prefix of) a name in the T9 notation. That is, a search for name Vagner will look like 824637.
+We assume the searches are in the form of a numbers. The numbers either denote (a prefix of) the phone number, or
+(a prefix of) a name in the T9 notation. That is, a search for name Vagner will look like 824637.
 
-The program is interactive. It processes individual input lines until it reaches end-of-file (EOF) in the standard input. Each line represents one command. The commands are:
+The program is interactive. It processes individual input lines until it reaches end-of-file (EOF) in the standard
+input. Each line represents one command. The commands are:
 
-    + phone name This command adds a new record to the phone book. The number is a sequence of digits 0 to 9, the length of the phone is between 1 and 20 digits. Caution: leading zeroes are important. The number is any sequence of letters and spaces. The name cannot be empty, it must not start/end with a space. The character +, the phone and the name must be separated by exactly one space.
-    ? number This command searches the phone book. The number is any sequence of digits 0-9, the length is at least one character (there is not an explicit upper limit). The character ? and the number are separated by exactly one space.
+    + phone name This command adds a new record to the phone book. The number is a sequence of digits 0 to 9, the
+    length of the phone is between 1 and 20 digits. Caution: leading zeroes are important. The number is any sequence
+    of letters and spaces. The name cannot be empty, it must not start/end with a space. The character +, the phone
+    and the name must be separated by exactly one space.
+    ? number This command searches the phone book. The number is any sequence of digits 0-9, the length is at least
+    one character (there is not an explicit upper limit). The character ? and the number are separated by exactly
+    one space.
 
 The output consists of answers to the commands in the input. The add command may result in:
 
     an error it the format is invalid,
-    an error if the command adds a record that already exists in the phone book (an exact match of phone and name, including matching upper/lower case letters),
+    an error if the command adds a record that already exists in the phone book (an exact match of phone and name,
+    including matching upper/lower case letters),
     OK if the new record has been inserted to the phone book.
 
 The search command may result in:
 
     an error if the format is invalid,
-    the list of matching records and the number of matching records. This format will be used if there is at most 10 matching results,
-    the number of matching results (i.e. the records are not printed). This format will be used if there is more than 10 matching results.
+    the list of matching records and the number of matching records. This format will be used if there is at most
+    10 matching results,
+    the number of matching results (i.e. the records are not printed). This format will be used if there is more
+    than 10 matching results.
 
-The program must validate input data. If the input is invalid, the program must detect it, it shall output an error message (see below) and skip the processing of that command (proceed to the next input line). If displayed, the error message must be displayed to the standard output (do not send it to the error output) and the error message must be terminated by a newline (\n). The input is considered invalid, if:
+The program must validate input data. If the input is invalid, the program must detect it, it shall output an error
+message (see below) and skip the processing of that command (proceed to the next input line). If displayed, the
+error message must be displayed to the standard output (do not send it to the error output) and the error message
+must be terminated by a newline (\n). The input is considered invalid, if:
 
     an unknown command (command does not start with + or ?),
     phone or name is missing in the add command,
@@ -507,9 +523,12 @@ The program must validate input data. If the input is invalid, the program must 
     missing/extra spaces separating commands/phone/name,
     phone in the add command is longer than 20 digits.
 
-Invest some time to think up the structure of the program. There is not any explicit upper limit on the number of records/length of the name. Use dynamic memory allocation and structures.
+Invest some time to think up the structure of the program. There is not any explicit upper limit on the number
+of records/length of the name. Use dynamic memory allocation and structures.
 
-The searching may be rather slow, especially if the number of records is high. The time limits are adjusted such that basic searching algorithm passes all tests except the bonus. An advanced algorithm is required to pass the bonus test.
+The searching may be rather slow, especially if the number of records is high. The time limits are adjusted
+such that basic searching algorithm passes all tests except the bonus. An advanced algorithm is required to
+pass the bonus test.
 
 Sample program runs:
 
@@ -630,12 +649,15 @@ Invalid input.
 
 Advice:
 
-    The listings above (sample runs) use regular font to display user inputs and bold font to display program output. This formatting exists only here, on the WWW page, to increase readibility of the listings. The actual program must output just the text without any markup, see the attached files.
+    The listings above (sample runs) use regular font to display user inputs and bold font to display program
+    output. This formatting exists only here, on the WWW page, to increase readibility of the listings. The actual
+    program must output just the text without any markup, see the attached files.
     Do not forget the newline (\n) after the last output line.
     Do not use int data type to represent phone numbers.
     The program requires dynamic memory allocation.
     Use C libraries to solve the problem. Do not use C++ (STL).
-    The program requires a reasonable implementation of the input processing. If your implementation needs to increase the size of an array, do not increase the size by just one element.
+    The program requires a reasonable implementation of the input processing. If your implementation needs to
+    increase the size of an array, do not increase the size by just one element.
     It is recommended to read the individual input lines and process them as strings.
     T9 codes (both lower and upper case letters):
 
@@ -650,8 +672,10 @@ Advice:
        space  1   
       
 
-    The order of the phones in the answer is not specified. The testing environment adjusts the order of the lines before it actually compares the results.
-    Textual description of valid input data structure is not 100% exact. Since some students complained about it, we provide input language specification in EBNF:
+    The order of the phones in the answer is not specified. The testing environment adjusts the order of the
+    lines before it actually compares the results.
+    Textual description of valid input data structure is not 100% exact. Since some students complained about it,
+    we provide input language specification in EBNF:
 
         input      ::= { command '\n' }
         command    ::= '+' ' ' phone ' ' name 
@@ -674,12 +698,3 @@ Max. assessment: 	5.0000 (Without bonus points)
 Submissions: 	12 / 20 Free retries + 10 Penalized retries (-10 % penalty each retry)
 Advices: 	2 / 2 Advices for free + 2 Advices with a penalty (-10 % penalty each advice)
 */
-
-
-
-
-
-
-
-
-
